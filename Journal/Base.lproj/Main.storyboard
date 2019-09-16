@@ -74,16 +74,50 @@
             </objects>
             <point key="canvasLocation" x="1314.4927536231885" y="82.366071428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Journal Entry-->
         <scene sceneID="lZ2-RT-ZgX">
             <objects>
-                <viewController id="Yt9-QF-YNP" sceneMemberID="viewController">
+                <viewController id="Yt9-QF-YNP" customClass="EntryDetailViewController" customModule="Journal" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zdg-4Q-s1K">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zkU-Q3-AYW">
+                                <rect key="frame" x="20" y="96" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vho-ZN-tOI">
+                                <rect key="frame" x="20" y="134" width="374" height="174"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="zkU-Q3-AYW" firstAttribute="top" secondItem="Vzx-Yn-FzQ" secondAttribute="top" constant="8" id="69G-ru-J3f"/>
+                            <constraint firstItem="Vzx-Yn-FzQ" firstAttribute="trailing" secondItem="Vho-ZN-tOI" secondAttribute="trailing" constant="20" id="IMd-MJ-EC0"/>
+                            <constraint firstItem="Vho-ZN-tOI" firstAttribute="leading" secondItem="Vzx-Yn-FzQ" secondAttribute="leading" constant="20" id="Kbw-IG-tDj"/>
+                            <constraint firstItem="zkU-Q3-AYW" firstAttribute="leading" secondItem="Vzx-Yn-FzQ" secondAttribute="leading" constant="20" id="R8k-KH-HRy"/>
+                            <constraint firstItem="Vho-ZN-tOI" firstAttribute="top" secondItem="zkU-Q3-AYW" secondAttribute="bottom" constant="8" id="Rni-xy-k9d"/>
+                            <constraint firstItem="Vzx-Yn-FzQ" firstAttribute="bottom" secondItem="Vho-ZN-tOI" secondAttribute="bottom" constant="554" id="lV2-Q7-d5f"/>
+                            <constraint firstItem="Vzx-Yn-FzQ" firstAttribute="trailing" secondItem="zkU-Q3-AYW" secondAttribute="trailing" constant="20" id="xgY-DU-Xkr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Vzx-Yn-FzQ"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Journal Entry" id="Rab-W4-NKl">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="ZfZ-Sg-vlx">
+                            <connections>
+                                <action selector="save:" destination="Yt9-QF-YNP" id="iSW-RC-GfI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="zkU-Q3-AYW" id="Ykt-HW-wRh"/>
+                        <outlet property="textView" destination="Vho-ZN-tOI" id="SA4-nl-kRK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6xd-oH-sOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
