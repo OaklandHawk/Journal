@@ -8,22 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		F5E10BFD23302C2A00AED3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E10BFC23302C2A00AED3B7 /* AppDelegate.swift */; };
-		F5E10BFF23302C2A00AED3B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E10BFE23302C2A00AED3B7 /* ViewController.swift */; };
 		F5E10C0223302C2A00AED3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E10C0023302C2A00AED3B7 /* Main.storyboard */; };
 		F5E10C0523302C2A00AED3B7 /* Journal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5E10C0323302C2A00AED3B7 /* Journal.xcdatamodeld */; };
 		F5E10C0723302C2C00AED3B7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5E10C0623302C2C00AED3B7 /* Assets.xcassets */; };
 		F5E10C0A23302C2C00AED3B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E10C0823302C2C00AED3B7 /* LaunchScreen.storyboard */; };
+		F5E10C1223302E0800AED3B7 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E10C1123302E0800AED3B7 /* EntryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F5E10BF923302C2A00AED3B7 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E10BFC23302C2A00AED3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F5E10BFE23302C2A00AED3B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5E10C0123302C2A00AED3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5E10C0423302C2A00AED3B7 /* Journal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Journal.xcdatamodel; sourceTree = "<group>"; };
 		F5E10C0623302C2C00AED3B7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5E10C0923302C2C00AED3B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5E10C0B23302C2C00AED3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5E10C1123302E0800AED3B7 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				F5E10BFC23302C2A00AED3B7 /* AppDelegate.swift */,
-				F5E10BFE23302C2A00AED3B7 /* ViewController.swift */,
+				F5E10C1423302E4800AED3B7 /* Cell */,
+				F5E10C1123302E0800AED3B7 /* EntryTableViewCell.swift */,
+				F5E10C1323302E3300AED3B7 /* Resources */,
 				F5E10C0023302C2A00AED3B7 /* Main.storyboard */,
 				F5E10C0623302C2C00AED3B7 /* Assets.xcassets */,
 				F5E10C0823302C2C00AED3B7 /* LaunchScreen.storyboard */,
@@ -65,6 +67,20 @@
 				F5E10C0323302C2A00AED3B7 /* Journal.xcdatamodeld */,
 			);
 			path = Journal;
+			sourceTree = "<group>";
+		};
+		F5E10C1323302E3300AED3B7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F5E10C1423302E4800AED3B7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +154,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E10C1223302E0800AED3B7 /* EntryTableViewCell.swift in Sources */,
 				F5E10C0523302C2A00AED3B7 /* Journal.xcdatamodeld in Sources */,
-				F5E10BFF23302C2A00AED3B7 /* ViewController.swift in Sources */,
 				F5E10BFD23302C2A00AED3B7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
