@@ -16,6 +16,7 @@
 		F5E10C17233030DC00AED3B7 /* EntryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E10C16233030DC00AED3B7 /* EntryDetailViewController.swift */; };
 		F5E10C1A2330317A00AED3B7 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E10C192330317A00AED3B7 /* CoreDataStack.swift */; };
 		F5E10C1C2330320300AED3B7 /* Entry+Conveniece.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E10C1B2330320300AED3B7 /* Entry+Conveniece.swift */; };
+		F5E10C1F2330339E00AED3B7 /* EntryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E10C1E2330339E00AED3B7 /* EntryController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		F5E10C16233030DC00AED3B7 /* EntryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryDetailViewController.swift; sourceTree = "<group>"; };
 		F5E10C192330317A00AED3B7 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		F5E10C1B2330320300AED3B7 /* Entry+Conveniece.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Entry+Conveniece.swift"; sourceTree = "<group>"; };
+		F5E10C1E2330339E00AED3B7 /* EntryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +65,10 @@
 			isa = PBXGroup;
 			children = (
 				F5E10BFC23302C2A00AED3B7 /* AppDelegate.swift */,
-				F5E10C182330316600AED3B7 /* CoreData */,
-				F5E10C15233030BC00AED3B7 /* ViewControllers */,
-				F5E10C1423302E4800AED3B7 /* View'sCell */,
+				F5E10C1D2330336E00AED3B7 /* Model Controller */,
+				F5E10C182330316600AED3B7 /* Model */,
+				F5E10C15233030BC00AED3B7 /* View Controllers */,
+				F5E10C1423302E4800AED3B7 /* View Cell */,
 				F5E10C1123302E0800AED3B7 /* EntryTableViewCell.swift */,
 				F5E10C1323302E3300AED3B7 /* Resources */,
 				F5E10C0023302C2A00AED3B7 /* Main.storyboard */,
@@ -83,29 +86,37 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		F5E10C1423302E4800AED3B7 /* View'sCell */ = {
+		F5E10C1423302E4800AED3B7 /* View Cell */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "View'sCell";
+			path = "View Cell";
 			sourceTree = "<group>";
 		};
-		F5E10C15233030BC00AED3B7 /* ViewControllers */ = {
+		F5E10C15233030BC00AED3B7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				F5E10C16233030DC00AED3B7 /* EntryDetailViewController.swift */,
 			);
-			path = ViewControllers;
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
-		F5E10C182330316600AED3B7 /* CoreData */ = {
+		F5E10C182330316600AED3B7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				F5E10C192330317A00AED3B7 /* CoreDataStack.swift */,
 				F5E10C0323302C2A00AED3B7 /* Journal.xcdatamodeld */,
 				F5E10C1B2330320300AED3B7 /* Entry+Conveniece.swift */,
 			);
-			path = CoreData;
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F5E10C1D2330336E00AED3B7 /* Model Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F5E10C1E2330339E00AED3B7 /* EntryController.swift */,
+			);
+			path = "Model Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			files = (
 				F5E10C1A2330317A00AED3B7 /* CoreDataStack.swift in Sources */,
 				F5E10C1223302E0800AED3B7 /* EntryTableViewCell.swift in Sources */,
+				F5E10C1F2330339E00AED3B7 /* EntryController.swift in Sources */,
 				F5E10C0523302C2A00AED3B7 /* Journal.xcdatamodeld in Sources */,
 				F5E10C17233030DC00AED3B7 /* EntryDetailViewController.swift in Sources */,
 				F5E10BFD23302C2A00AED3B7 /* AppDelegate.swift in Sources */,
