@@ -56,7 +56,12 @@ class EntryController {
 		entry.identifier = identifier
 		
 		CoreDataStack.shared.saveToPersistentStore()
+	}
+	
+	func deleteEntry(entry: Entry) {
 		
+		CoreDataStack.shared.mainContext.delete(entry)
+		CoreDataStack.shared.saveToPersistentStore()
 	}
 	
 }
