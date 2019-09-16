@@ -20,6 +20,13 @@ class EntryController {
 //		}
 //	}
 	
+	var entries: [Entry] {
+		
+		loadFromPersistenStore()
+		return loadFromPersistenStore()
+	}
+	
+	
 	func loadFromPersistenStore() -> [Entry] {
 		let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
 		
@@ -30,6 +37,15 @@ class EntryController {
 			NSLog("Error fetching tasks: \(error)")
 			return []
 		}
+	}
+	
+	@discardableResult func create(with title: String, bodyText: String, timestamp: Date, identifier: String) -> Entry {
+		
+		let entry = Entry(title: title, bodyText: bodyText, timestamp: timestamp, indentifier: identifier, context: CoreDataStack.shared.mainContext)
+		
+		CoreDataStack.shared.saveToPersistentStore()
+
+		return entry
 	}
 	
 }
