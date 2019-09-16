@@ -21,8 +21,6 @@ class EntryController {
 //	}
 	
 	var entries: [Entry] {
-		
-		loadFromPersistenStore()
 		return loadFromPersistenStore()
 	}
 	

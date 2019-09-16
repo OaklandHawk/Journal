@@ -37,7 +37,7 @@ class EntryTableViewCell: UITableViewCell {
 		
 		title.text = entry?.title
 		bodyText.text = entry?.bodyText
-		timestamp.text = "\(timestamp)"
+//		timestamp.text = "\(timestamp)"
 	}
 
 }
