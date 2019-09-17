@@ -22,10 +22,11 @@ class EntryTableViewCell: UITableViewCell {
 
 	
 	func updateViews() {
-//		guard let timestamp = entry?.timestamp else { return }
+		guard let time = entry?.timestamp else { return }
+		
 		
 		title.text = entry?.title
 		bodyText.text = entry?.bodyText
-//		timestamp.text = "\(timestamp)"
+		timestamp.text = "\(time)"
 	}
 }
