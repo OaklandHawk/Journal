@@ -20,7 +20,6 @@ class EntryTableViewCell: UITableViewCell {
 		}
 	}
 	
-	
 	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -39,5 +38,4 @@ class EntryTableViewCell: UITableViewCell {
 		bodyText.text = entry?.bodyText
 //		timestamp.text = "\(timestamp)"
 	}
-
 }

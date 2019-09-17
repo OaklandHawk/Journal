@@ -12,6 +12,7 @@ class EntryDetailViewController: UIViewController {
 	
 	@IBOutlet weak var textField: UITextField!
 	@IBOutlet weak var textView: UITextView!
+	@IBOutlet weak var segmentControl: UISegmentedControl!
 	
 	var entry: Entry? {
 		didSet {
@@ -28,25 +29,25 @@ class EntryDetailViewController: UIViewController {
     }
 	
 	func updateViews() {
+		if isViewLoaded == true {
 		title = entry?.title ?? "Create Entry"
+		
 		textField.text = entry?.title
 		textView.text = entry?.bodyText
+		}
 	}
     
 	@IBAction func save(_ sender: Any) {
 		guard let title = textField.text,
-			let bodyText = textView.text else { return }
+			let bodyText = textView.text,
+			!title.isEmpty else { return }
 		
 		
-		if entry != nil {
-			guard let thisEntry = entry else { return }
-			
-			entryController?.updateEntry(entry: thisEntry, with: title, bodyText: bodyText, timestamp: CVTimeStamp)
-			navigationController?.popViewController(animated: true)
+	if let entry = entry {
+		entryController?.updateEntry(entry: entry, with: title, bodyText: bodyText)
 		} else {
-			entryController?.createEntry(
-			navigationController?.popViewController(animated: true)
+		entryController?.create(with: title, bodyText: bodyText)
 		}
+		navigationController?.popViewController(animated: true)
 	}
-	
 }

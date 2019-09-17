@@ -33,7 +33,7 @@ class EntryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "EntryTableViewCell", for: indexPath) as! EntryTableViewCell
 
-		cell.textLabel?.text = entryController.entries[indexPath.row].title
+		cell.entry = entryController.entries[indexPath.row]
 
         return cell
     }
@@ -42,6 +42,8 @@ class EntryTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+			let entry = entryController.entries[indexPath.row]
+			entryController.deleteEntry(entry: entry)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
