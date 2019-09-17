@@ -57,6 +57,15 @@ class EntryDetailViewController: UIViewController {
 		
 		textField.text = entry?.title
 		textView.text = entry?.bodyText
+			
+		if let currentMood = entry?.mood,
+			let mood = Mood(rawValue: currentMood) {
+			
+			let index = Mood.allCases.firstIndex(of: mood) ?? 0
+			
+			segmentControl.selectedSegmentIndex = index
+			}
+			
 		}
 	}
     
@@ -65,10 +74,9 @@ class EntryDetailViewController: UIViewController {
 			let bodyText = textView.text,
 			!title.isEmpty else { return }
 		
-		let priorityIndex = segmentControl.selectedSegmentIndex
-
+		let moodIndex = segmentControl.selectedSegmentIndex
 		
-		let mood = Mood.allCases[priorityIndex]
+		let mood = Mood.allCases[moodIndex]
 		
 		
 	if let entry = entry {
