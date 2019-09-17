@@ -7,6 +7,29 @@
 //
 
 import UIKit
+import CoreData
+
+
+enum Mood: String, CaseIterable {
+	case happy
+	case silly
+	case deepThought
+	
+//	func indexValue() -> Int {
+//		switch self {
+//		case .happy:
+//			return 0
+//		case .silly:
+//			return 1
+//		case .deepThought:
+//			return 2
+//		}
+//	}
+//
+	static var value: [Mood] {
+		return [.happy, .silly, .deepThought]
+	}
+}
 
 class EntryDetailViewController: UIViewController {
 	
@@ -42,11 +65,16 @@ class EntryDetailViewController: UIViewController {
 			let bodyText = textView.text,
 			!title.isEmpty else { return }
 		
+		let priorityIndex = segmentControl.selectedSegmentIndex
+
+		
+		let mood = Mood.allCases[priorityIndex]
+		
 		
 	if let entry = entry {
-		entryController?.updateEntry(entry: entry, with: title, bodyText: bodyText)
+		entryController?.updateEntry(entry: entry, with: title, bodyText: bodyText, mood: mood.rawValue)
 		} else {
-		entryController?.create(with: title, bodyText: bodyText)
+		entryController?.create(with: title, bodyText: bodyText, mood: mood)
 		}
 		navigationController?.popViewController(animated: true)
 	}
