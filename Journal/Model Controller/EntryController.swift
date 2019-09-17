@@ -11,32 +11,6 @@ import CoreData
 
 class EntryController {
 	
-//	func saveToPersistentStore() {
-//		do {
-//			try mainContext.save()
-//		} catch {
-//			NSLog("Error saving context: \(error)")
-//			mainContext.reset()
-//		}
-//	}
-	
-	var entries: [Entry] {
-		return loadFromPersistenStore()
-	}
-	
-	
-	func loadFromPersistenStore() -> [Entry] {
-		let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
-		
-		do {
-			let entries = try CoreDataStack.shared.mainContext.fetch(fetchRequest)
-			return entries
-		} catch {
-			NSLog("Error fetching tasks: \(error)")
-			return []
-		}
-	}
-	
 	@discardableResult func create(with title: String, bodyText: String, mood: Mood) -> Entry {
 		
 		let entry = Entry(title: title, bodyText: bodyText, mood: mood, context: CoreDataStack.shared.mainContext)

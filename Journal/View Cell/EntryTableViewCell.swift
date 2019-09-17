@@ -19,20 +19,10 @@ class EntryTableViewCell: UITableViewCell {
 			updateViews()
 		}
 	}
-	
-	override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
 	
 	func updateViews() {
-		guard let timestamp = entry?.timestamp else { return }
+//		guard let timestamp = entry?.timestamp else { return }
 		
 		title.text = entry?.title
 		bodyText.text = entry?.bodyText
