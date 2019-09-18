@@ -11,6 +11,16 @@ import CoreData
 
 extension Entry {
 	
+	var entryRepresentation: EntryRepresentation? {
+		guard let title = title,
+			let bodyText = bodyText,
+			let mood = mood,
+			let timestamp = timestamp,
+			let identifier = identifier?.uuidString else { return nil }
+		
+		return EntryRepresentation(title: title, bodyText: bodyText, timestamp: timestamp, identifier: identifier, mood: mood)
+	}
+	
 	@discardableResult convenience init(title: String, bodyText: String, mood: Mood, timestamp: Date = Date(), identifier: UUID = UUID(), context: NSManagedObjectContext) {
 	
 		
@@ -20,7 +30,7 @@ extension Entry {
 		self.bodyText = bodyText
 		self.mood = mood.rawValue
 		self.timestamp = timestamp
-//		self.identifier = identifier
+		self.identifier = identifier
 	}
 	
 	@discardableResult convenience init?(entryRepresentation: EntryRepresentation, context: NSManagedObjectContext) {

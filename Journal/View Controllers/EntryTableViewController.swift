@@ -10,9 +10,7 @@ import UIKit
 import CoreData
 
 class EntryTableViewController: UITableViewController {
-	
-	let baseURL = URL(string: "https://journ-6bde1.firebaseio.com/")!
-	
+		
 	let entryController = EntryController()
 	
 	var count = 0
