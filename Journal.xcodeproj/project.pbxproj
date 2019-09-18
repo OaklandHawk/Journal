@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F5AF52832332CF4800143D15 /* TaskRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5AF52822332CF4800143D15 /* TaskRepresentation.swift */; };
 		F5E10BFD23302C2A00AED3B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5E10BFC23302C2A00AED3B7 /* AppDelegate.swift */; };
 		F5E10C0223302C2A00AED3B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5E10C0023302C2A00AED3B7 /* Main.storyboard */; };
 		F5E10C0523302C2A00AED3B7 /* Entry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F5E10C0323302C2A00AED3B7 /* Entry.xcdatamodeld */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F5AF52822332CF4800143D15 /* TaskRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRepresentation.swift; sourceTree = "<group>"; };
 		F5CD56AD23317BFD00D10E06 /* Journal 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Journal 2.xcdatamodel"; sourceTree = "<group>"; };
 		F5E10BF923302C2A00AED3B7 /* Journal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Journal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E10BFC23302C2A00AED3B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				F5E10C192330317A00AED3B7 /* CoreDataStack.swift */,
 				F5E10C0323302C2A00AED3B7 /* Entry.xcdatamodeld */,
 				F5E10C1B2330320300AED3B7 /* Entry+Conveniece.swift */,
+				F5AF52822332CF4800143D15 /* TaskRepresentation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 				F5E10C1A2330317A00AED3B7 /* CoreDataStack.swift in Sources */,
 				F5E10C1223302E0800AED3B7 /* EntryTableViewCell.swift in Sources */,
 				F5E10C2123303FA200AED3B7 /* EntryTableViewController.swift in Sources */,
+				F5AF52832332CF4800143D15 /* TaskRepresentation.swift in Sources */,
 				F5E10C1F2330339E00AED3B7 /* EntryController.swift in Sources */,
 				F5E10C0523302C2A00AED3B7 /* Entry.xcdatamodeld in Sources */,
 				F5E10C17233030DC00AED3B7 /* EntryDetailViewController.swift in Sources */,

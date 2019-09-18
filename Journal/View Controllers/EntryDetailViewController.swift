@@ -11,9 +11,9 @@ import CoreData
 
 
 enum Mood: String, CaseIterable {
-	case happy
-	case silly
-	case deepThought
+	case happy = "😀"
+	case silly = "🤪"
+	case deepThought = "🤔"
 	
 //	func indexValue() -> Int {
 //		switch self {
