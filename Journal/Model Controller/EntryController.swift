@@ -26,25 +26,18 @@ class EntryController {
 
 	func put(entry: Entry, completion: @escaping () -> Void = { }) {
 		
-		let identifier = entry.identifier
+		let identifier = entry.identifier ?? UUID().uuidString
 		entry.identifier = identifier
 		
 		let requestURL = baseURL
-			.appendingPathComponent("identifier")
+			.appendingPathComponent(identifier)
 			.appendingPathExtension("json")
-		
 		
 		var request = URLRequest(url: requestURL)
 		request.httpMethod = HTTPMethod.put.rawValue
 		
-		guard let entryRepresentation = entry.entryRepresentation else {
-			NSLog("Entry Representation is nil")
-			completion()
-			return
-		}
-		
 		do {
-			request.httpBody = try JSONEncoder().encode(entryRepresentation)
+			request.httpBody = try JSONEncoder().encode(entry.entryRepresentation)
 		} catch {
 			NSLog("Error encoding entry representation: \(error)")
 			completion()
@@ -57,7 +50,7 @@ class EntryController {
 				completion()
 				return
 			}
-		}
+		}.resume()
 	}
 	
 	// TODO: updateFunction
@@ -141,15 +134,14 @@ class EntryController {
 		}.resume()
 	}
 	
-	@discardableResult func create(with title: String, bodyText: String, mood: Mood) -> Entry {
+	func create(with title: String, bodyText: String, mood: Mood) {
 		
 		let entry = Entry(title: title, bodyText: bodyText, mood: mood, context: CoreDataStack.shared.mainContext)
 		
-		CoreDataStack.shared.saveToPersistentStore()
 		
 		put(entry: entry)
-		
-		return entry
+		CoreDataStack.shared.saveToPersistentStore()
+
 	}
 	
 	func updateEntry(entry: Entry, with title: String, bodyText: String, mood: String) {
@@ -158,9 +150,10 @@ class EntryController {
 		entry.bodyText = bodyText
 		entry.mood = mood
 		
-		CoreDataStack.shared.saveToPersistentStore()
 		
 		put(entry: entry)
+		CoreDataStack.shared.saveToPersistentStore()
+
 	}
 	
 	func deleteEntry(entry: Entry) {
