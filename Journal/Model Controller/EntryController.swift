@@ -56,6 +56,53 @@ class EntryController {
 		}
 	}
 	
+	func update(entry: Entry, representation: EntryRepresentation) {
+		
+	}
+	
+	func updateEntries(with representations: [EntryRepresentation]) {
+		let identifiersToFetch = representations.compactMap({ UUID(uuidString: $0.identifier)})
+		
+		let representationsById = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
+		
+		var tasksToCreate = representationsById
+		
+		do {
+			let context = CoreDataStack.shared.mainContext
+			
+			let fetchRequest: NSFetchRequest<Entry> = Entry.fetchRequest()
+			
+			// identifier == \(identifier)
+			fetchRequest.predicate = NSPredicate(format: "identifier IN %@", identifiersToFetch)
+			
+			// Which of these tasks exsist in Core Data already?
+			let exsistingTask = try context.fetch(fetchRequest)
+			
+			// Which need to be updated? Which need to be put into Core Data?
+			for entry in exsistingTask {
+				guard let identifier = entry.identifier,
+					// This gets the task representation that corresponds to the task from Core Data.
+					let representation = representationsById[identifier] else { continue }
+				
+				entry.title = representation.title
+				entry.bodyText = representation.bodyText
+				entry.mood = representation.mood
+				
+				tasksToCreate.removeValue(forKey: identifier)
+			}
+			
+			// Take the task that AREN'T in Core Data and create new ones for them.
+			for represntation in tasksToCreate.values {
+				Entry(entryRepresentation: represntation, context: context)
+			}
+			
+			CoreDataStack.shared.saveToPersistentStore()
+			
+		} catch {
+			NSLog("Error fetching entry from persistent store: \(error)")
+		}
+	}
+	
 	@discardableResult func create(with title: String, bodyText: String, mood: Mood) -> Entry {
 		
 		let entry = Entry(title: title, bodyText: bodyText, mood: mood, context: CoreDataStack.shared.mainContext)
