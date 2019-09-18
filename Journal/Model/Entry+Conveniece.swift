@@ -44,7 +44,5 @@ extension Entry {
 				   timestamp: entryRepresentation.timestamp,
 				   identifier: identifier,
 				   context: context)
-		
 	}
-	
 }

@@ -18,6 +18,10 @@ enum HTTPMethod: String {
 
 class EntryController {
 	
+	init() {
+		fetchEntriesFromServer()
+	}
+	
 	let baseURL = URL(string: "https://journ-6bde1.firebaseio.com/")!
 
 	func put(entry: Entry, completion: @escaping () -> Void = { }) {
@@ -103,6 +107,39 @@ class EntryController {
 		}
 	}
 	
+	func fetchEntriesFromServer(completion: @escaping () -> Void = { }) {
+		
+		// appendingPathComponent adds a '/'
+		// appendingPathExtension adds a '.'
+		
+		let requestURL = baseURL.appendingPathExtension("json")
+		
+		URLSession.shared.dataTask(with: requestURL) { (data, _, error) in
+			
+			if let error = error {
+				NSLog("Error fetching tasks: \(error)")
+				completion()
+			}
+			
+			guard let data = data else {
+				NSLog("No data returned from data task")
+				completion()
+				return
+			}
+			
+			do {
+				let decoder = JSONDecoder()
+				
+				let entryRepresentations = try decoder.decode([String: EntryRepresentation].self, from: data).map({ $0.value })
+				
+				self.updateEntries(with: entryRepresentations)
+				
+			} catch {
+				NSLog("Error decoding: \(error)")
+			}
+		}.resume()
+	}
+	
 	@discardableResult func create(with title: String, bodyText: String, mood: Mood) -> Entry {
 		
 		let entry = Entry(title: title, bodyText: bodyText, mood: mood, context: CoreDataStack.shared.mainContext)
@@ -136,6 +173,15 @@ class EntryController {
 	func deleteEntryFromServer(entry: Entry, completion: @escaping () -> Void = { }) {
 		let requestURL = baseURL.appendingPathExtension("json")
 		
+		var request = URLRequest(url: requestURL)
+		request.httpMethod = HTTPMethod.delete.rawValue
+		
+		URLSession.shared.dataTask(with: request) { (_, _, error) in
+			if let error = error {
+				NSLog("Error deleting entry: \(error)")
+				completion()
+				return
+				}
+			}
 		}
-	
 }
