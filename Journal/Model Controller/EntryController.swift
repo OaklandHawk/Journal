@@ -62,6 +62,8 @@ class EntryController {
 		
 		CoreDataStack.shared.saveToPersistentStore()
 		
+		put(entry: entry)
+		
 		return entry
 	}
 	
@@ -72,12 +74,21 @@ class EntryController {
 		entry.mood = mood
 		
 		CoreDataStack.shared.saveToPersistentStore()
+		
+		put(entry: entry)
 	}
 	
 	func deleteEntry(entry: Entry) {
 		
 		CoreDataStack.shared.mainContext.delete(entry)
 		CoreDataStack.shared.saveToPersistentStore()
+		deleteEntryFromServer(entry: entry)
 	}
+	
+	// TODO: Add optional Error
+	func deleteEntryFromServer(entry: Entry, completion: @escaping () -> Void = { }) {
+		let requestURL = baseURL.appendingPathExtension("json")
+		
+		}
 	
 }
