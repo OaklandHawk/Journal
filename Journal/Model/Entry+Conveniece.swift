@@ -16,12 +16,12 @@ extension Entry {
 			let bodyText = bodyText,
 			let mood = mood,
 			let timestamp = timestamp,
-			let identifier = identifier?.uuidString else { return nil }
+			let identifier = identifier else { return nil }
 		
 		return EntryRepresentation(title: title, bodyText: bodyText, timestamp: timestamp, identifier: identifier, mood: mood)
 	}
 	
-	@discardableResult convenience init(title: String, bodyText: String, mood: Mood, timestamp: Date = Date(), identifier: UUID = UUID(), context: NSManagedObjectContext) {
+	@discardableResult convenience init(title: String, bodyText: String, mood: Mood, timestamp: Date = Date(), identifier: String, context: NSManagedObjectContext) {
 	
 		
 		self.init(context: context)
@@ -35,14 +35,13 @@ extension Entry {
 	
 	@discardableResult convenience init?(entryRepresentation: EntryRepresentation, context: NSManagedObjectContext) {
 		
-		guard let identifier = UUID(uuidString: entryRepresentation.identifier),
-			let mood = Mood(rawValue: entryRepresentation.mood) else { return nil }
+		guard let mood = Mood(rawValue: entryRepresentation.mood) else { return nil }
 		
 		self.init(title: entryRepresentation.title,
 				   bodyText: entryRepresentation.bodyText,
 				   mood: mood,
 				   timestamp: entryRepresentation.timestamp,
-				   identifier: identifier,
+				   identifier: entryRepresentation.identifier,
 				   context: context)
 	}
 }

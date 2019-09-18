@@ -26,11 +26,11 @@ class EntryController {
 
 	func put(entry: Entry, completion: @escaping () -> Void = { }) {
 		
-		let identifier = entry.identifier ?? UUID()
+		let identifier = entry.identifier
 		entry.identifier = identifier
 		
 		let requestURL = baseURL
-			.appendingPathComponent(identifier.uuidString)
+			.appendingPathComponent("identifier")
 			.appendingPathExtension("json")
 		
 		
@@ -60,12 +60,13 @@ class EntryController {
 		}
 	}
 	
+	// TODO: updateFunction
 	func update(entry: Entry, representation: EntryRepresentation) {
 		
 	}
 	
 	func updateEntries(with representations: [EntryRepresentation]) {
-		let identifiersToFetch = representations.compactMap({ UUID(uuidString: $0.identifier)})
+		let identifiersToFetch = representations.compactMap({$0.identifier})
 		
 		let representationsById = Dictionary(uniqueKeysWithValues: zip(identifiersToFetch, representations))
 		
