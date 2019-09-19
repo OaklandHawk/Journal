@@ -87,7 +87,6 @@ class EntryTableViewController: UITableViewController {
             // Delete the row from the data source
 			let entry = fetchedResultsController.object(at: indexPath)
 			entryController.deleteEntry(entry: entry)
-            tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
 
